@@ -11,6 +11,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 
+gem 'newrelic_rpm'
+
 group :doc do
   gem 'sdoc', require: false
 end
