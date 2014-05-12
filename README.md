@@ -1,4 +1,4 @@
-# Recipe Finder for the Health Conscious
+# Pik-N-Pan: Recipe Finder for the Health Conscious
 
 ### Purpose
 
