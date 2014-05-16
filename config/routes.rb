@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   
-  get 'recipes/index'
-
-  get 'recipes/show'
+  resources :recipes, only: [:index, :show]
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
