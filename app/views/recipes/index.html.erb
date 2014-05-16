@@ -1,3 +1,15 @@
-<h1>Recipes</h1>
+<h1><%= pluralize(@recipes.size, 'Recipe') %></h1>
 
-<p>List of recipes</p>
+<% @recipes.each do |recipe| %>
+  <article>
+    <header>
+      <h3><%= link_to recipe.name, recipe %></h3>
+    </header>
+    <table>
+      <tr>
+        <th>Directions:</th>
+        <td><%= truncate(recipe.directions, length: 40) %></td>
+      </tr>
+    </table>
+  </article>
+<% end %>

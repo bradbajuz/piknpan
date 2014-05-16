@@ -1,3 +1,10 @@
-<h1>Recipes</h1>
+<article>
+  <header>
+    <h1><%= @recipe.name %></h1>
+  </header>
 
-<p>A recipe</p>
+  <h4>Directions:</h4>
+  <p>
+  <%= @recipe.directions %>
+  </p>
+</article>
