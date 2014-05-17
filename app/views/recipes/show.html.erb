@@ -11,9 +11,10 @@
   <% end %>
   </ul>
 
-
   <h4>Directions:</h4>
-  <p>
-  <%= @recipe.directions.html_safe %>
-  </p>
+  <ul>
+  <% @recipe.directions.each do |direction| %>
+    <li><%= direction.step %></li>
+  <% end %>
+  </ul>
 </article>
