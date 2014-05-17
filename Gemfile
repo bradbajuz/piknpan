@@ -14,6 +14,7 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'devise'
 gem 'figaro'
+gem 'pundit'
 gem 'newrelic_rpm'
 gem 'rails_admin'
 
