@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140516011404) do
+ActiveRecord::Schema.define(version: 20140517005638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "directions", force: true do |t|
+    t.text     "steps"
+    t.integer  "recipe_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "directions", ["recipe_id"], name: "index_directions_on_recipe_id", using: :btree
 
   create_table "ingredient_lines", force: true do |t|
     t.string   "quantity"
@@ -37,7 +46,6 @@ ActiveRecord::Schema.define(version: 20140516011404) do
 
   create_table "recipes", force: true do |t|
     t.string   "name"
-    t.text     "directions"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
