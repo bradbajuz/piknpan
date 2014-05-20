@@ -1,0 +1,14 @@
+<h1>My Pantry</h1>
+
+<% @item_in_pantries.each do |item| %>
+  <article>
+    <header>
+      <h3><%= link_to item.location, item %></h3>
+    </header>
+    <table>
+      <tr>
+        <td><%= item.ingredient.name %></td>
+      </tr>
+    </table>
+  </article>
+<% end %>
