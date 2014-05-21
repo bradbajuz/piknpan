@@ -6,7 +6,7 @@
   <h4>Ingredients:</h4>
   <ul>
   <% @recipe.ingredient_lines.each do |ingredient| %>
-    <li><%= ingredient.quantity.to_r %>
+    <li><%= ingredient.quantity %>
         <%= ingredient.measurement %>
         - <%= ingredient.ingredient.name %></li>
   <% end %>
