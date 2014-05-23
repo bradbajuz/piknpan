@@ -3,7 +3,7 @@
 <% @recipes.each do |recipe| %>
   <article>
     <header>
-      <h3><%= link_to recipe.name, recipe %></h3>
+      <h3><%= link_to recipe.name, recipe %> (<%= recipe.matches_pantry(current_user) %>)</h3>
     </header>
     <table>
       <tr>
