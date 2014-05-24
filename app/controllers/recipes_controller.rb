@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all {|recipe| recipe.matches_pantry (current_user)}
+
+    @recipes = Recipe.all.select{|recipe| recipe.matches_pantry(current_user) > 25}.sort_by{|recipe| - recipe.matches_pantry(current_user)}
 
     # authorize @recipes
   end
