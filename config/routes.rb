@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :recipes, only: [:index, :show]
+  resources :recipes, only: [:index, :show, :new]
   resources :item_in_pantries, only: [:index, :show]
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

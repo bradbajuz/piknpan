@@ -1,14 +1,26 @@
 <h1><%= pluralize(@recipes.size, 'Recipe') %></h1>
 
-<% @recipes.each do |recipe| %>
-  <article>
-    <header>
-      <h3><%= link_to recipe.name, recipe %> (<%= recipe.matches_pantry(current_user) %>)</h3>
-    </header>
-    <table>
-      <tr>
-        <td><%= truncate(recipe.description, length: 50) %></td>
-      </tr>
-    </table>
-  </article>
-<% end %>
+<div class="row">
+  <div class="col-md-8">
+    <%= link_to "New Recipe", new_recipe_path, class: 'btn btn-success' %>
+  </div>
+</div>
+
+<hr />
+
+<div class="row">
+  <div class="col-md-8">
+    <% @recipes.each do |recipe| %>
+      <div class="media">
+        <div class="media-body">
+          <h3 class="media-heading">
+            <%= link_to recipe.name, recipe %> (<%= recipe.matches_pantry(current_user) %>)
+          </h3>
+          <p>
+            <%= truncate(recipe.description, length: 50) %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
