@@ -1,16 +1,44 @@
-<div class="col-md-8">
+<form class="form-horizontal" role="form">
   <%= form_for @recipe do |f| %>
     <div class="form-group">
-      <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control', placeholder: "Enter recipe name" %>
+      <%= f.label :name, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-4">
+        <%= f.text_field :name, class: 'form-control', placeholder: "Enter recipe name" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :description, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-8">
+        <%= f.text_area :description, rows: 4, class: 'form-control', placeholder: "Enter recipe description" %>
+      </div>
     </div>
     <div class="form-group">
-      <%= f.label :description %>
-      <%= f.text_area :description, rows: 4, class: 'form-control', placeholder: "Enter recipe description" %>
+      <%= f.fields_for :ingredient_lines do |ingredient_form| %>
+        <%= ingredient_form.label :directions, class: 'col-sm-2 control-label' %>
+        <div class="col-sm-8">
+          <%= ingredient_form.text_area :directions, class: 'form-control', placeholder: "Enter directions" %>
+        </div>
+      <% end %>
     </div>
-    <select class="form-group">
-      <%= f.label :ingredients %>
-      <%= f.collection_select :ingredients, Ingredient.order(:name), :id, :name, include_blank: false %>
-    </select>
+
+    <div class="form-group">
+      <%= f.fields_for :ingredient_lines do |ingredient_form| %>
+        <%= ingredient_form.label :Ingredient, class: 'col-sm-2 control-label' %>
+        <div class="form-group">
+          <div class="col-sm-2">
+            <%= ingredient_form.collection_select :ingredient_id,
+              Ingredient.order(:name), :id, :name, prompt: "Select Ingredient", class: 'col-sm-2 form-control' %>
+            <%= ingredient_form.text_field :quantity, placeholder: "0", class: 'form-control' %>
+            <%= ingredient_form.text_field :measurement, placeholder: "cup/T", class: 'form-control' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    
+    <div class="form-group">
+      <%= f.submit "Save", class: 'btn btn-success' %>
+    </div>  
   <% end %>
-</div>
+</form>
+

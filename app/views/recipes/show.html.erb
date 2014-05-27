@@ -1,21 +1,21 @@
-<article>
-  <header>
-    <h1><%= @recipe.name %></h1>
-  </header>
+<h1><%= @recipe.name %></h1>
 
-  <h4>Ingredients:</h4>
-  <ul>
-  <% @recipe.ingredient_lines.each do |ingredient| %>
-    <li><%= ingredient.quantity %>
-        <%= ingredient.measurement %>
-        - <%= ingredient.ingredient.name %></li>
-  <% end %>
-  </ul>
+<div class="row"
+  <div class="col-md-8">
+    <h4>Ingredients:</h4>
+    <ul>
+    <% @recipe.ingredient_lines.each do |ingredient| %>
+      <li><%= ingredient.quantity %>
+          <%= ingredient.measurement %>
+          - <%= ingredient.ingredient.name %></li>
+    <% end %>
+    </ul>
 
-  <h4>Directions:</h4>
-  <ul>
-  <% @recipe.directions.each do |direction| %>
-    <li><%= direction.step %></li>
-  <% end %>
-  </ul>
-</article>
+    <h4>Directions:</h4>
+    <ol>
+    <% @recipe.directions.each do |direction| %>
+      <li><%= direction.step %></li>
+    <% end %>
+    </ol>
+  </div>
+</div>

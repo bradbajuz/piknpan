@@ -14,5 +14,28 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    @recipe.ingredient_lines.build
+  end
+
+  def create
+    @recipe = Recipe.new
+
+    if @recipe.save
+      redirect_to @recipe, notice: "Recipe was saved successfully."
+    else
+      flash[:error] = "Error creating recipe. Please try again."
+      render 'form'
+    end
+  end
+
+  def destroy
+    
+  end
+
+  private
+
+  def recipe_params
+    params.require(:recipe).permit(:name, :description,
+      ingredient_lines_attributes: [:id, :ingredient_id, :name, :quantity, :measurement, :directions])
   end
 end

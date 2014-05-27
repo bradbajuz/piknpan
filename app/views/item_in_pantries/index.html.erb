@@ -1,14 +1,25 @@
 <h1>My Pantry</h1>
 
-<% @item_in_pantries.each do |item| %>
-  <article>
-    <header>
-      <h3><%= link_to item.location, item %></h3>
-    </header>
-    <table>
-      <tr>
-        <td><%= item.ingredient.name %></td>
-      </tr>
-    </table>
-  </article>
-<% end %>
+<div class="row">
+  <div class="col-md-8">
+    <%= link_to "New Pantry Item", new_item_in_pantry_path, class: 'btn btn-success' %>
+  </div>
+</div>
+
+<hr />
+
+<div class="row">
+  <div class="col-md-8">
+    <% @item_in_pantries.each do |item| %>
+      <div class="media">
+        <div class="media-body"
+          <h4 class="media-heading">
+            <%= link_to item.location, item %>
+          </h4>
+          <p>
+            <%= item.ingredient.name %>
+          </p>
+      </div>
+    <% end %>
+  </div>
+</div>

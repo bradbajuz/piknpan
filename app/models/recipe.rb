@@ -1,7 +1,8 @@
 class Recipe < ActiveRecord::Base
-  has_many :ingredient_lines
+  has_many :ingredient_lines, dependent: :destroy
   has_many :ingredients, through: :ingredient_lines
   has_many :directions
+  accepts_nested_attributes_for :ingredient_lines, allow_destroy: true
 
   def matches_pantry(user)
     count = 0

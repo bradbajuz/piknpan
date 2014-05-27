@@ -7,4 +7,8 @@ class ItemInPantriesController < ApplicationController
 
   def show
   end
+
+  def new
+    @item_in_pantrie = ItemInPantry.new
+  end
 end
