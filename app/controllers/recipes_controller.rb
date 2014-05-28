@@ -18,7 +18,8 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new
+    @recipe = Recipe.new(recipe_params)
+    @recipe.user = current_user
 
     if @recipe.save
       redirect_to @recipe, notice: "Recipe was saved successfully."
