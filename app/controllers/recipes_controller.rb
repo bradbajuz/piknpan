@@ -1,7 +1,6 @@
 class RecipesController < ApplicationController
   def index
-
-    @recipes = Recipe.all.select{|recipe| recipe.matches_pantry(current_user) >= 25}.sort_by{|recipe| - recipe.matches_pantry(current_user)}
+    @recipes = Recipe.all.select{|recipe| recipe.matches_pantry(current_user) }.sort_by{|recipe| - recipe.matches_pantry(current_user)}
 
     # authorize @recipes
   end
@@ -19,12 +18,14 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
-    @recipe.user = current_user
 
+    puts "*** #{@recipe.errors.to_yaml}"
     if @recipe.save
       redirect_to @recipe, notice: "Recipe was saved successfully."
+      puts "*** #{@recipe.errors.to_yaml}"
     else
       flash[:error] = "Error creating recipe. Please try again."
+      puts "*** #{@recipe.errors.to_yaml}"
       render 'form'
     end
   end

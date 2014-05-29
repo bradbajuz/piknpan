@@ -1,4 +1,4 @@
-Rails.application.routes.draw do
+Piknpan::Application.routes.draw do
 
   resources :recipes, only: [:index, :show, :new, :create, :destroy]
   resources :item_in_pantries, only: [:index, :show, :new, :create, :destroy]
