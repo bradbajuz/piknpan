@@ -1,0 +1,49 @@
+<div class="form-horizontal" role="form">
+  <%= form_for item_in_pantry do |f| %>
+
+
+    <div class="form-group">
+      <%= f.label :Ingredients, class: 'col-sm-2 control-label' %>
+      <div class="form-group">
+        <div class="col-sm-2">
+          <%= f.collection_select :ingredient_id,
+            Ingredient.order(:name), :id, :name, prompt: "Select Ingredient", class: 'col-sm-2 form-control' %>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <%= f.label :quantity, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-4">
+        <%= f.text_field :quantity, class: 'form-control', placeholder: "Enter quantity" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :min_quantity, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-8">
+        <%= f.text_field :min_quantity, class: 'form-control', placeholder: "Enter minimum quantity" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :measurement, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-8">
+        <%= f.text_field :measurement, class: 'form-control', placeholder: "Enter measurement" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :location, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-8">
+        <%= f.text_field :location, class: 'form-control', placeholder: "Enter location of item" %>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <%= f.submit "Save", class: 'btn btn-success' %>
+    </div>  
+  <% end %>
+</div>
+

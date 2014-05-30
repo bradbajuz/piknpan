@@ -7,4 +7,8 @@ class ItemInPantry < ActiveRecord::Base
   # validates :location, length: { minimum: 1 }, if: :location?
   # validates :ingredient, presence: true
   # validates :user, presence: true
+
+  def name
+    "#{user.name}: #{ingredient.name}"
+  end
 end

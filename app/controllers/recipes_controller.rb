@@ -14,18 +14,20 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     @recipe.ingredient_lines.build
+    @recipe.ingredient_lines.build
+    @recipe.ingredient_lines.build
+
+
+
   end
 
   def create
     @recipe = Recipe.new(recipe_params)
 
-    puts "*** #{@recipe.errors.to_yaml}"
     if @recipe.save
       redirect_to @recipe, notice: "Recipe was saved successfully."
-      puts "*** #{@recipe.errors.to_yaml}"
     else
       flash[:error] = "Error creating recipe. Please try again."
-      puts "*** #{@recipe.errors.to_yaml}"
       render 'form'
     end
   end
@@ -38,6 +40,6 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(:name, :description,
-      ingredient_lines_attributes: [:id, :ingredient_id, :name, :quantity, :measurement, :directions])
+      ingredient_lines_attributes: [:ingredient_id, :name, :quantity, :measurement, :directions])
   end
 end
