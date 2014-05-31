@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  respond_to :html, :js
+
   def index
     @recipes = Recipe.all.select{|recipe| recipe.matches_pantry(current_user) }.sort_by{|recipe| - recipe.matches_pantry(current_user)}
 
@@ -23,12 +25,17 @@ class RecipesController < ApplicationController
       redirect_to @recipe, notice: "Recipe was saved successfully."
     else
       flash[:error] = "Error creating recipe. Please try again."
-      render 'form'
+      # render "recipes/form"
+    end
+
+    respond_with(@recipe) do |f|
+      f.html { render 'form' }
     end
   end
 
   def destroy
     @recipe = Recipe.find(params[:id])
+    @recipe.destroy
   end
 
   private
