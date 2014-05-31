@@ -16,6 +16,6 @@ class Recipe < ActiveRecord::Base
   validates :description, length: { minimum: 10 }, presence: true
   validates :ingredient_lines, presence: true
   # validates :ingredients, presence: true
-  validates :directions, presence: true
+  # validates :direction, presence: true
 
 end
