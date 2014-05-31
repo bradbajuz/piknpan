@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
   respond_to :html, :js
 
   def index
-    @recipes = Recipe.all.select{|recipe| recipe.matches_pantry(current_user) }.sort_by{|recipe| - recipe.matches_pantry(current_user)}
+    @recipes = Recipe.all.select{|recipe| recipe.matches_pantry(current_user) > 25 }.sort_by{|recipe| - recipe.matches_pantry(current_user)}
 
     # authorize @recipes
   end
@@ -22,9 +22,10 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
 
     if @recipe.save
-      redirect_to @recipe, notice: "Recipe was saved successfully."
+      flash[:notice] = "Recipe was saved successfully."
     else
       flash[:error] = "Error creating recipe. Please try again."
+      puts "*** #{@recipe.errors.to_yaml}"
       # render "recipes/form"
     end
 
@@ -42,6 +43,6 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(:name, :description,
-      ingredient_lines_attributes: [:ingredient_id, :name, :quantity, :measurement, :directions])
+      ingredient_lines_attributes: [:ingredient_id, :name, :quantity, :measurement, :directions, :_destroy])
   end
 end

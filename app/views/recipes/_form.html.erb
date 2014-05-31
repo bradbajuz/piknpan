@@ -16,6 +16,7 @@
     <div class="form-group">
       <%= f.label :Ingredient, class: 'col-sm-2 control-label' %>
     </div>
+
     <div class="add-ln-form">
       <%= f.fields_for :ingredient_lines do |ingredient_form| %>
         <%= render 'ingredient_line_fields', f: ingredient_form %>
