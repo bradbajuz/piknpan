@@ -1,6 +1,7 @@
 class ItemInPantry < ActiveRecord::Base
   belongs_to :ingredient
   belongs_to :user
+  has_many :matches
 
   # validates :quantity, length: { minimum: 1 }, presence: true
   # validates :measurement, length: { minimum: 1 }, presence: true

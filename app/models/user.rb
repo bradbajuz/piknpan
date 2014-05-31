@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   # has_many :item_in_pantries, dependent: :destroy
+  has_many :matches
 end

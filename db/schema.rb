@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140520023855) do
+ActiveRecord::Schema.define(version: 20140531213734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,19 @@ ActiveRecord::Schema.define(version: 20140520023855) do
 
   add_index "item_in_pantries", ["ingredient_id"], name: "index_item_in_pantries_on_ingredient_id", using: :btree
   add_index "item_in_pantries", ["user_id"], name: "index_item_in_pantries_on_user_id", using: :btree
+
+  create_table "matches", force: true do |t|
+    t.integer  "weight"
+    t.integer  "recipe_id"
+    t.integer  "item_in_pantry_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "matches", ["item_in_pantry_id"], name: "index_matches_on_item_in_pantry_id", using: :btree
+  add_index "matches", ["recipe_id"], name: "index_matches_on_recipe_id", using: :btree
+  add_index "matches", ["user_id"], name: "index_matches_on_user_id", using: :btree
 
   create_table "recipes", force: true do |t|
     t.string   "name"
