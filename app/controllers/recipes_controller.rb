@@ -14,11 +14,6 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     @recipe.ingredient_lines.build
-    @recipe.ingredient_lines.build
-    @recipe.ingredient_lines.build
-
-
-
   end
 
   def create
@@ -33,7 +28,7 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    
+    @recipe = Recipe.find(params[:id])
   end
 
   private

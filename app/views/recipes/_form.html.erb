@@ -17,24 +17,11 @@
     <div class="form-group">
       <%= f.fields_for :ingredient_lines do |ingredient_form| %>
         <%= ingredient_form.label :Ingredient, class: 'col-sm-2 control-label' %>
-        <div class="form-group">
-          <div class="row">
-            <div class="col-xs-2">
-              <%= ingredient_form.collection_select :ingredient_id,
-                Ingredient.order(:name), :id, :name, prompt: "Select Ingredient", class: 'form-control' %>
-            </div> 
-            <div class="col-xs-2">
-              <%= ingredient_form.text_field :quantity, placeholder: "0", class: 'col-sm-2 form-control' %>
-            </div>
-            <div class="col-xs-2">
-              <%= ingredient_form.text_field :measurement, placeholder: "cup/T", class: 'col-sm-2 form-control' %>
-            </div>
-            <div class="col-xs-2">
-              <%= ingredient_form.text_field :directions, class: 'col-sm-2 form-control', placeholder: "Enter directions" %>
-            </div>
-          </div>
-        </div>
+        <%= render 'ingredient_line_fields', f: ingredient_form %>
       <% end %>
+    </div>
+    <div class="form-group">
+      <%= link_to_add_fields "Add", f, :ingredient_lines %>
     </div>
     
     <div class="form-group">
