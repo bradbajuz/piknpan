@@ -4,16 +4,16 @@
       Ingredient.order(:name), :id, :name, prompt: "Select Ingredient", class: 'form-control' %>
   </div>
   <div class="col-xs-1">
-    <%= f.text_field :quantity, placeholder: "0", class: 'form-control' %>
+    <%= f.text_field :quantity, placeholder: "0", class: 'form-control input-sm' %>
   </div>
   <div class="col-xs-1">
-    <%= f.text_field :measurement, placeholder: "cup", class: 'form-control' %>
+    <%= f.text_field :measurement, placeholder: "cup", class: 'form-control input-sm' %>
   </div>
   <div class="col-xs-4">
-    <%= f.text_field :directions, placeholder: "Enter directions", class: 'form-control' %>
+    <%= f.text_field :directions, placeholder: "chopped", class: 'form-control input-sm' %>
   </div>
   <div class="col-xs-1">
     <%= f.hidden_field :_destroy %>
-    <%= link_to "Remove", '#', class: "remove_fields btn btn-danger" %>
+    <%= link_to "Remove", '#', class: "remove_fields btn btn-danger btn-sm pull-right-btn" %>
   </div>
 </fieldset>

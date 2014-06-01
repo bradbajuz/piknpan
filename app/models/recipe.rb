@@ -1,9 +1,15 @@
 class Recipe < ActiveRecord::Base
   has_many :ingredient_lines, dependent: :destroy
   has_many :ingredients, through: :ingredient_lines
+<<<<<<< HEAD
   has_many :directions
   has_many :matches
+=======
+  has_many :directions, dependent: :destroy
+
+>>>>>>> Add ability to add directions to recipe
   accepts_nested_attributes_for :ingredient_lines, allow_destroy: true
+  accepts_nested_attributes_for :directions, allow_destroy: true
 
   def matches_pantry(user)
     count = 0
@@ -16,7 +22,6 @@ class Recipe < ActiveRecord::Base
   validates :name, length: { minimum: 2 }, presence: true
   validates :description, length: { minimum: 10 }, presence: true
   validates :ingredient_lines, presence: true
-  # validates :ingredients, presence: true
-  # validates :direction, presence: true
+  validates :directions, presence: true
 
 end

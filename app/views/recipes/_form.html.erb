@@ -14,21 +14,31 @@
       </div>
     </div>
     <div class="form-group">
-      <%= f.label :Ingredient, class: 'col-sm-2 control-label' %>
+      <%= f.label :Ingredients, class: 'col-sm-2 control-label' %>
     </div>
-
     <div class="add-ln-form">
-      <%= f.fields_for :ingredient_lines do |ingredient_form| %>
-        <%= render 'ingredient_line_fields', f: ingredient_form %>
+      <%= f.fields_for :ingredient_lines do |builder| %>
+        <%= render 'ingredient_line_fields', f: builder %>
       <% end %>
     </div>
     <div class="add-ln-form">
-      <div>
-        <%= link_to_add_fields '<div class="btn btn-primary btn-lg center-block">Add</div>'.html_safe, f, :ingredient_lines %></a>
-      </div>
+      <%= link_to_add_fields '<div class="btn btn-primary btn-sm pull-add-btn">Add</div>'.html_safe, f, :ingredient_lines %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :Directions, class: 'col-sm-2 control-label' %>
+    </div>
+    <div class="add-ln-form">
+      <%= f.fields_for :directions do |builder| %>
+        <%= render 'direction_fields', f: builder %>
+      <% end %>
+    </div>
+    <div class="add-ln-form">
+      <%= link_to_add_fields '<div class="btn btn-primary btn-sm pull-add-btn">Add</div>'.html_safe, f, :directions %>
     </div>
   </div>
-    <div class="form-group">
+
+    <div class="form-group col-xs-2">
       <%= f.submit "Save", class: 'btn btn-success' %>
     </div>  
   <% end %>

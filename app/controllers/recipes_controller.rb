@@ -16,6 +16,7 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     @recipe.ingredient_lines.build
+    @recipe.directions.build
   end
 
   def create
@@ -23,6 +24,7 @@ class RecipesController < ApplicationController
 
     if @recipe.save
       flash[:notice] = "Recipe was saved successfully."
+      puts "*** #{@recipe.errors.to_yaml}"
     else
       flash[:error] = "Error creating recipe. Please try again."
       puts "*** #{@recipe.errors.to_yaml}"
@@ -43,6 +45,7 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(:name, :description,
-      ingredient_lines_attributes: [:ingredient_id, :name, :quantity, :directions, :measurement, :_destroy])
+      ingredient_lines_attributes: [:ingredient_id, :name, :quantity, :directions, :measurement, :_destroy],
+      directions_attributes: [:direction_id, :step, :_destroy])
   end
 end
