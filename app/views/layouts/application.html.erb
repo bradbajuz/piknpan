@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Piknpan</title>
+    <title>The Pantry</title>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
@@ -9,7 +9,7 @@
   <body>
     <div class="container">
       <ul class="nav nav-tabs">
-        <li><%= link_to "Pik-N-Pan", root_path %></li>
+        <li><%= link_to "The Pantry", root_path %></li>
         <% if user_signed_in? %>
           <li><%= link_to "Recipes", recipes_path %></li>
         <% end %>
