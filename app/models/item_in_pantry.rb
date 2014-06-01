@@ -4,6 +4,7 @@ class ItemInPantry < ActiveRecord::Base
   has_many :matches
 
   validates :quantity, length: { minimum: 1 }, presence: true
+  validates :min_quantity, length: { minimum: 1 }, if: :min_quantity?
   validates :measurement, length: { minimum: 1 }, presence: true
   validates :location, length: { minimum: 1 }, if: :location?
   validates :ingredient, presence: true
