@@ -1,6 +1,7 @@
 class ItemInPantriesController < ApplicationController
   def index
     @item_in_pantries = ItemInPantry.all
+    @item_in_pantries = current_user.item_in_pantries
 
     authorize @item_in_pantries
   end
