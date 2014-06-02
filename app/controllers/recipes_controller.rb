@@ -2,7 +2,8 @@ class RecipesController < ApplicationController
   respond_to :html, :js
 
   def index
-    @recipes = Recipe.all.select{|recipe| recipe.matches_pantry(current_user) }.sort_by{|recipe| - recipe.matches_pantry(current_user)}
+    #@recipes = Recipe.all.select{|recipe| recipe.matches_pantry(current_user) }
+    @recipes = current_user.matched_recipes
 
     # authorize @recipes
   end

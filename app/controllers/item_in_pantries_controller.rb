@@ -10,7 +10,7 @@ class ItemInPantriesController < ApplicationController
   end
 
   def edit
-    @topic = Topic.find)params[:id]
+    @item_in_pantry = ItemInPantry.find(params[:id])
   end
 
   def new

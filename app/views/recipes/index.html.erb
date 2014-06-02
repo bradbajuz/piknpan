@@ -14,7 +14,7 @@
       <div class="media">
         <div class="media-body">
           <h3 class="media-heading">
-            <%= link_to recipe.name, recipe %> (<%= recipe.matches_pantry(current_user) %>)
+            <%= link_to recipe.name, recipe %>
           </h3>
           <p>
             <%= truncate(recipe.description, length: 50) %>

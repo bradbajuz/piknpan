@@ -5,5 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   has_many :item_in_pantries, dependent: :destroy
-  has_many :matches
+  has_many :matches, -> { order(weight: :desc)}
+  has_many :matched_recipes, through: :matches, source: :recipe
 end
