@@ -1,7 +1,9 @@
 class ItemInPantry < ActiveRecord::Base
+  after_save :calculate_matches
+  after_destroy :calculate_matches
+
   belongs_to :ingredient
   belongs_to :user
-  has_many :matches
 
   validates :quantity, length: { minimum: 1 }, presence: true
   validates :min_quantity, length: { minimum: 1 }, if: :min_quantity?
@@ -12,5 +14,12 @@ class ItemInPantry < ActiveRecord::Base
 
   def name
     "#{user.name}: #{ingredient.name}"
+  end
+
+  def calculate_matches
+    ingredient.recipes.where(user_id: user_id).each do |r|
+      match = Match.find_or_create_by(recipe_id: r.id, user_id: user_id)
+      match.save
+    end
   end
 end
