@@ -6,6 +6,11 @@ class ItemInPantriesController < ApplicationController
   end
 
   def show
+    @item_in_pantry = ItemInPantry.find(params[:id])
+  end
+
+  def edit
+    @topic = Topic.find)params[:id]
   end
 
   def new
