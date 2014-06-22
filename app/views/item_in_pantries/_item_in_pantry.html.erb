@@ -1,0 +1,12 @@
+<tr id="<%= "item_in_pantries-#{item_in_pantry.id}" %>">
+  <td><%= item_in_pantry.ingredient.name %></td>
+  <td><%= item_in_pantry.quantity %></td>
+  <td><%= item_in_pantry.measurement %></td>
+  <td><%= item_in_pantry.location %></td>
+  <td>
+    <%= link_to 'Edit', edit_item_in_pantry_path(item_in_pantry.id), class: 'btn btn-primary btn-xs' %>
+  </td>
+  <td>
+    <%= link_to 'Delete', item_in_pantry, method: :delete, class: 'btn btn-danger btn-xs', data: { confirm: 'Are you sure?'} %>
+  </td>
+</tr>

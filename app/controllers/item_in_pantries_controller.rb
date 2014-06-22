@@ -27,13 +27,22 @@ class ItemInPantriesController < ApplicationController
       flash[:error] = "Error creating item. Please try again."
       render "_form"
     end
+  end
 
-    def destroy
-      
+  def destroy
+    @item_in_pantry = ItemInPantry.find(params[:id])
+    name = @item_in_pantry.ingredient.name
+
+    if @item_in_pantry.destroy
+      flash[:notice] = "\"#{name}\" was deleted successfully."
+      redirect_to item_in_pantries_path
+    else
+      flash[:error] = "There was an error deleting \"#{name}\"."
+      render "item_in_pantries/index"
     end
   end
 
-  private
+private
 
   def item_in_pantry_params
     params.require(:item_in_pantry).permit(:quantity, :min_quantity, :measurement,
