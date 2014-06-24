@@ -14,6 +14,8 @@ class Match < ActiveRecord::Base
       count += 1 if ingredient.item_in_pantries.where(user: user).size >= 1
     end
     self.weight = (count * 100)/recipe.ingredients.length
+    # rescue ZeroDivisionError
+    #   0
     return true # Because this is a before_save filter
    end
 end
