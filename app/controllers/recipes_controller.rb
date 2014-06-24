@@ -26,7 +26,7 @@ class RecipesController < ApplicationController
 
     if @recipe.save
       flash[:notice] = "Recipe was saved successfully."
-      # puts "*** #{@recipe.errors.to_yaml}"
+      puts "*** #{@recipe.errors.to_yaml}"
     else
       flash[:error] = "Error creating recipe. Please try again."
       # render "recipes/form"
