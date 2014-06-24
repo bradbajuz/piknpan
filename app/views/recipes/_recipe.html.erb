@@ -1,0 +1,10 @@
+<tr id="<%= "item_in_pantries-#{recipe.id}" %>">
+  <td><%= link_to recipe.name, recipe %></td>
+  <td><%= truncate(recipe.description, length: 50) %></td>
+  <td>
+    <%= link_to 'Edit', edit_recipe_path(recipe.id), class: 'btn btn-primary btn-xs' %>
+  </td>
+  <td>
+    <%= link_to 'Delete', recipe, method: :delete, class: 'btn btn-danger btn-xs', data: { confirm: 'Are you sure?'} %>
+  </td>
+</tr>
