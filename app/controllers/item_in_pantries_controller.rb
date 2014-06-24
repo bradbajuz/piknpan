@@ -23,7 +23,7 @@ class ItemInPantriesController < ApplicationController
 
     if @item_in_pantry.save
       redirect_to item_in_pantries_path, notice: "Item was saved successfully."
-      puts "*** #{@recipe.errors.to_yaml}"
+      # puts "*** #{@item_in_pantry.errors.to_yaml}"
     else
       flash[:error] = "Error creating item. Please try again."
       render "_form"
