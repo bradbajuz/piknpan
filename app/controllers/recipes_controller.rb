@@ -39,16 +39,18 @@ class RecipesController < ApplicationController
 
   def destroy
     @recipe = Recipe.find(params[:id])
-    @match = current_user.matches.find(params[:id])
+    @match = Match.find(params[:id])
     name = @recipe.name
 
-    if @match.destroy
+    if @recipe.destroy
       flash[:notice] = "\"#{name}\" was deleted successfully."
       redirect_to recipes_path
     else
       flash[:error] = "There was an error deleting \"#{name}\"."
       render "recipe/index"
     end
+
+    @match.destroy
   end
 
   private
