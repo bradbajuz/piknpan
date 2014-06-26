@@ -1,7 +1,7 @@
 Piknpan::Application.routes.draw do
 
-  resources :recipes, only: [:index, :show, :new, :create, :edit, :destroy]
-  resources :item_in_pantries, only: [:index, :show, :new, :create, :edit, :destroy]
+  resources :recipes, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  resources :item_in_pantries, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users

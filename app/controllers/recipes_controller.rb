@@ -37,6 +37,21 @@ class RecipesController < ApplicationController
     end
   end
 
+  def edit
+    @recipe = Recipe.find(params[:id])
+  end
+
+  def update
+    @recipe = Recipe.find(params[:id])
+
+    if @recipe.update_attributes(recipe_params)
+      redirect_to @recipe
+    else
+      flash[:error] = "Error updating recipe. Please try again."
+      render :edit
+    end
+  end
+
   def destroy
     @recipe = Recipe.find(params[:id])
     @match = Match.find(params[:id])
@@ -57,7 +72,7 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(:name, :description,
-      ingredient_lines_attributes: [:ingredient_id, :name, :quantity, :directions, :measurement, :_destroy],
-      directions_attributes: [:direction_id, :step, :_destroy])
+      ingredient_lines_attributes: [:id, :ingredient_id, :name, :quantity, :directions, :measurement, :_destroy],
+      directions_attributes: [:id, :direction_id, :step, :_destroy])
   end
 end
