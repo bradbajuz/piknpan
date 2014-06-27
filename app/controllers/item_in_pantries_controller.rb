@@ -9,10 +9,6 @@ class ItemInPantriesController < ApplicationController
     @item_in_pantry = ItemInPantry.find(params[:id])
   end
 
-  def edit
-    @item_in_pantry = ItemInPantry.find(params[:id])
-  end
-
   def new
     @item_in_pantry = ItemInPantry.new
   end
@@ -27,6 +23,21 @@ class ItemInPantriesController < ApplicationController
     else
       flash[:error] = "Error creating item. Please try again."
       render "_form"
+    end
+  end
+
+  def edit
+    @item_in_pantry = ItemInPantry.find(params[:id])
+  end
+
+  def update
+    @item_in_pantry = ItemInPantry.find(params[:id])
+
+    if @item_in_pantry.update_attributes(item_in_pantry_params)
+      redirect_to item_in_pantries_path
+    else
+      flash[:error] = "Error updating item. Please try again."
+      render :edit
     end
   end
 

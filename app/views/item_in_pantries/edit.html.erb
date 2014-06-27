@@ -1,1 +1,3 @@
-<h1>Edit</h1>
+<h1>Edit <%= @item_in_pantry.ingredient.name %></h1>
+
+<%= render partial: 'form', locals: { item_in_pantry: @item_in_pantry} %>
