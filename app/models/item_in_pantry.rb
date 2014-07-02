@@ -16,6 +16,14 @@ class ItemInPantry < ActiveRecord::Base
     "#{user.name}: #{ingredient.name}"
   end
 
+  def ingredient_name
+    ingredient.try(:name)
+  end
+
+  def ingredient_name=(name)
+    self.ingredient = Ingredient.find_by_name(name) if name.present?
+  end
+
   def calculate_matches
     ingredient.recipes.where(user_id: user_id).each do |r|
       match = Match.find_or_create_by(recipe_id: r.id, user_id: user_id)

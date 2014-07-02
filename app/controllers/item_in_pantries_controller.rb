@@ -58,6 +58,6 @@ private
 
   def item_in_pantry_params
     params.require(:item_in_pantry).permit(:quantity, :min_quantity, :measurement,
-      :location, :ingredient_id)
+      :location, :ingredient_id, :ingredient_name)
   end
 end
