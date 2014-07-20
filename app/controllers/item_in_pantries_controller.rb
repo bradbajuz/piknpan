@@ -22,7 +22,6 @@ class ItemInPantriesController < ApplicationController
     @item_in_pantry.user = current_user
 
     if @item_in_pantry.save
-      flash[:notice] = "Item was saved successfully."
       redirect_to item_in_pantries_path, notice: "Item was saved successfully."
       return
       # puts "*** #{@item_in_pantry.errors.to_yaml}"
@@ -32,7 +31,7 @@ class ItemInPantriesController < ApplicationController
     end
 
     respond_with(@item_in_pantry) do |f|
-      f.html { render 'form'}
+      f.html { render 'form' }
     end
   end
 
