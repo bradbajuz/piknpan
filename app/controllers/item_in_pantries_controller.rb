@@ -1,6 +1,8 @@
 class ItemInPantriesController < ApplicationController
   autocomplete :ingredient, :name
-  
+
+  respond_to :html, :js
+
   def index
     @item_in_pantries = current_user.item_in_pantries
 
@@ -20,11 +22,17 @@ class ItemInPantriesController < ApplicationController
     @item_in_pantry.user = current_user
 
     if @item_in_pantry.save
+      flash[:notice] = "Item was saved successfully."
       redirect_to item_in_pantries_path, notice: "Item was saved successfully."
+      return
       # puts "*** #{@item_in_pantry.errors.to_yaml}"
     else
       flash[:error] = "Error creating item. Please try again."
-      render "_form"
+      # render "_form"
+    end
+
+    respond_with(@item_in_pantry) do |f|
+      f.html { render 'form'}
     end
   end
 
