@@ -1,7 +1,6 @@
 <fieldset class="add-ln-form">
   <div class="col-xs-2 col-xs-offset-1">
-    <%= f.collection_select :ingredient_id,
-      Ingredient.order(:name), :id, :name, prompt: "Select Ingredient", class: 'form-control' %>
+    <%= f.autocomplete_field :ingredient_name, autocomplete_ingredient_name_recipes_path, class: 'form-control input-sm' %>
   </div>
   <div class="col-xs-1">
     <%= f.text_field :quantity, placeholder: "0", class: 'form-control input-sm' %>

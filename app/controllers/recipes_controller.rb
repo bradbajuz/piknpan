@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  autocomplete :ingredient, :name
+
   respond_to :html, :js
 
   def index
@@ -72,7 +74,7 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(:name, :description,
-      ingredient_lines_attributes: [:id, :ingredient_id, :name, :quantity, :directions, :measurement, :_destroy],
+      ingredient_lines_attributes: [:id, :ingredient_id, :name, :quantity, :directions, :measurement, :_destroy, :ingredient_name],
       directions_attributes: [:id, :direction_id, :step, :_destroy])
   end
 end

@@ -1,4 +1,6 @@
 class ItemInPantriesController < ApplicationController
+  autocomplete :ingredient, :name
+  
   def index
     @item_in_pantries = current_user.item_in_pantries
 

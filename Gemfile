@@ -12,6 +12,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 # gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
+gem 'rails3-jquery-autocomplete'
 
 gem 'devise'
 gem 'figaro'

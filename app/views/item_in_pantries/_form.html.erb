@@ -4,7 +4,7 @@
       <%= f.label :Ingredient, class: 'col-sm-2 control-label' %>
       <div class="form-group">
         <div class="col-sm-2">
-          <%= f.text_field :ingredient_name, data: {autocomplete_source: ingredients_path}, class: 'form-control' %>
+          <%= f.autocomplete_field :ingredient_name, autocomplete_ingredient_name_item_in_pantries_path, class: 'form-control' %>
         </div>
       </div>
     </div>
