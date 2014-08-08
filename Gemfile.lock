@@ -189,7 +189,7 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    tzinfo (1.2.1)
+    tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.5.3)
       execjs (>= 0.3.0)
@@ -206,7 +206,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass (~> 3.2.0.1)
   capybara (~> 2.1.0)
-  coffee-rails (~> 4.0.0)
+  coffee-rails (~> 4.0.1)
   database_cleaner (~> 1.0.1)
   devise
   factory_girl_rails (~> 4.2.1)
