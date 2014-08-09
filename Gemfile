@@ -20,6 +20,10 @@ gem 'pundit'
 gem 'newrelic_rpm'
 gem 'rails_admin'
 
+group :production do
+  gem 'rails_12factor'
+end
+
 group :development, :test do
   gem 'rspec-rails', '~> 2.14.0'
   gem 'factory_girl_rails', '~> 4.2.1'
