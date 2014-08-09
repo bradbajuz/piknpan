@@ -11,7 +11,6 @@ Piknpan::Application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
   devise_for :users
-  resources :users, only: [:show, :index, :update]
 
   match 'about', to: 'welcome#about', via: :get
 
