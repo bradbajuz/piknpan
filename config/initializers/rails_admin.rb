@@ -8,9 +8,6 @@ RailsAdmin.config do |config|
   end
   config.current_user_method(&:current_user)
 
-  # Needed for Heroku asset pipeline 
-  config.assets.initialize_on_precompile = false
-
   ## == Cancan ==
   # config.authorize_with :cancan
 
