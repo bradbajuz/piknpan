@@ -15,7 +15,7 @@ class IngredientLine < ActiveRecord::Base
   end
 
   def ingredient_name=(name)
-    self.ingredient = Ingredient.find_by_name(name) if name.present?
+    self.ingredient = Ingredient.find_or_create_by(name: name) if name.present?
   end
 
   def calculate_matches
