@@ -1,15 +1,22 @@
 <fieldset class="add-ln-form">
   <div class="col-xs-2 col-xs-offset-1">
-    <%= f.autocomplete_field :ingredient_name, autocomplete_ingredient_name_recipes_path, class: 'form-control input-sm' %>
+    <span class="has-popover" data-toggle="popover" data-content="Choose ingredient" (popover)>
+      <%= f.autocomplete_field :ingredient_name, autocomplete_ingredient_name_recipes_path, class: 'form-control input-sm' %>
+    </span>
   </div>
   <div class="col-xs-1">
-    <%= f.text_field :quantity, placeholder: "0", class: 'form-control input-sm' %>
+    <span class="has-popover" data-toggle="popover" title="Example" data-content="1" (popover)>
+      <%= f.text_field :quantity, class: 'form-control input-sm' %>
+    </span>
   </div>
   <div class="col-xs-1">
-    <%= f.text_field :measurement, placeholder: "cup", class: 'form-control input-sm' %>
+    <span class="has-popover" data-toggle="popover" title="Example" data-content="cup" (popover)>
+      <%= f.text_field :measurement, class: 'form-control input-sm' %>
+    </span>
   </div>
   <div class="col-xs-4">
-    <%= f.text_field :directions, placeholder: "chopped", class: 'form-control input-sm' %>
+    <span class="has-popover" data-toggle="popover" title="Example" data-content="chopped" (popover)>
+    <%= f.text_field :directions, class: 'form-control input-sm' %>
   </div>
   <div class="col-xs-1">
     <%= f.hidden_field :_destroy %>
