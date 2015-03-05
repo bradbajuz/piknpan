@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.0'
+ruby '2.2.1'
 
 gem 'rails', '4.2.0'
 gem 'pg'
@@ -39,5 +39,6 @@ end
 
 group :doc do
   gem 'sdoc', require: false
+  gem 'rdoc', require: false
 end
 

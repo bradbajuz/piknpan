@@ -30,6 +30,10 @@ url("bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") fo
   margin-top: 5px;
 }
 
+.jumbotron {
+  margin-top: 10px;
+}
+
 .user-info {
   margin-top: 9px;
 }
@@ -59,6 +63,11 @@ url("bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") fo
   float: bottom;
   margin-right: 150px;
   bottom: 45px;
+}
+
+// Bootstrap JavaScript Popover
+.popover{
+    width:150px;
 }
 
 // Styles for Devise views
