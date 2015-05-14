@@ -1,23 +1,23 @@
 source 'https://rubygems.org'
-ruby '2.2.1'
+ruby '2.2.2'
 
-gem 'rails', '4.2.0'
+gem 'rails', '4.2.1'
 gem 'pg'
 
-gem 'sass-rails', '~> 5.0.1'
-gem 'bootstrap-sass', '~> 3.3.3'
+gem 'sass-rails', '~> 5.0.3'
+gem 'bootstrap-sass', '~> 3.3.4.1'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 # gem 'turbolinks'
-gem 'jbuilder', '~> 2.2.5'
+gem 'jbuilder', '~> 2.2.13'
 gem 'rails3-jquery-autocomplete'
 
 gem 'devise'
 gem 'figaro'
 gem 'pundit'
-gem 'newrelic_rpm'
+# gem 'newrelic_rpm'
 gem 'rails_admin'
 
 group :production do
@@ -26,7 +26,7 @@ end
 
 group :development, :test do
   gem 'byebug'
-  gem 'web-console', '~> 2.0'
+  gem 'web-console', '~> 2.1.2'
   gem 'spring'
   gem "pry"
   gem 'rspec-rails', '~> 2.14.0'

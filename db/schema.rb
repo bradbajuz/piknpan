@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20140602025947) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "directions", force: true do |t|
+  create_table "directions", force: :cascade do |t|
     t.text     "step"
     t.integer  "recipe_id"
     t.datetime "created_at"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20140602025947) do
 
   add_index "directions", ["recipe_id"], name: "index_directions_on_recipe_id", using: :btree
 
-  create_table "ingredient_lines", force: true do |t|
+  create_table "ingredient_lines", force: :cascade do |t|
     t.string   "quantity"
     t.string   "directions"
     t.integer  "recipe_id"
@@ -38,14 +38,14 @@ ActiveRecord::Schema.define(version: 20140602025947) do
   add_index "ingredient_lines", ["ingredient_id"], name: "index_ingredient_lines_on_ingredient_id", using: :btree
   add_index "ingredient_lines", ["recipe_id"], name: "index_ingredient_lines_on_recipe_id", using: :btree
 
-  create_table "ingredients", force: true do |t|
+  create_table "ingredients", force: :cascade do |t|
     t.string   "name"
     t.string   "category"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "item_in_pantries", force: true do |t|
+  create_table "item_in_pantries", force: :cascade do |t|
     t.string   "quantity"
     t.string   "min_quantity"
     t.string   "measurement"
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 20140602025947) do
   add_index "item_in_pantries", ["ingredient_id"], name: "index_item_in_pantries_on_ingredient_id", using: :btree
   add_index "item_in_pantries", ["user_id"], name: "index_item_in_pantries_on_user_id", using: :btree
 
-  create_table "matches", force: true do |t|
+  create_table "matches", force: :cascade do |t|
     t.integer  "weight"
     t.integer  "recipe_id"
     t.integer  "user_id"
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 20140602025947) do
   add_index "matches", ["recipe_id"], name: "index_matches_on_recipe_id", using: :btree
   add_index "matches", ["user_id"], name: "index_matches_on_user_id", using: :btree
 
-  create_table "recipes", force: true do |t|
+  create_table "recipes", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 20140602025947) do
 
   add_index "recipes", ["user_id"], name: "index_recipes_on_user_id", using: :btree
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
